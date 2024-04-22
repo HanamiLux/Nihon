@@ -1,4 +1,6 @@
-<img src="app/src/main/res/drawable-nodpi/logo.png" align=center width="50%" height="50%">
+<div align=center>
+<img src="app/src/main/res/drawable-nodpi/logo.png" align=center width="30%" height="30%">
+</div>
 
 ____
 
