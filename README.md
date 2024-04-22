@@ -5,9 +5,9 @@
 ____
 
 <div align=center>
-<img src="https://img.shields.io/github/repo-size/HanamiLux/NihonHistory" alt="repoSize"/>
-<img src="https://img.shields.io/github/downloads/HanamiLux/NihonHistory/total" alt="downloads"/>
-<img src="https://img.shields.io/github/last-commit/HanamiLux/NihonHistory" alt="lastCommit"/>
+<img src="https://img.shields.io/github/repo-size/HanamiLux/Nihon" alt="repoSize"/>
+<img src="https://img.shields.io/github/downloads/HanamiLux/Nihon/total" alt="downloads"/>
+<img src="https://img.shields.io/github/last-commit/HanamiLux/Nihon" alt="lastCommit"/>
 </div>
 
 
