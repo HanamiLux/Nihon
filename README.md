@@ -1,4 +1,4 @@
-<img src="app/src/main/res/drawable-nodpi/logo.png" align=center>
+<img src="app/src/main/res/drawable-nodpi/logo.png" align=center width="50%" height="50%">
 
 ____
 
@@ -17,7 +17,7 @@ ____
 
 ## **Usage**
 
-Soon
+- Soon
 
 
 ## **Show your support**
