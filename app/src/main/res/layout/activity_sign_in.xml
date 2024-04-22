@@ -7,13 +7,152 @@
     android:layout_height="match_parent"
     tools:context=".SignInActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="6dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/russo_one"
+            android:gravity="center"
+            android:text="@string/signIn"
+            android:textColor="@color/mainHeader"
+            android:textSize="48sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="48dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="48dp"
+                android:layout_marginTop="20dp"
+                android:autofillHints="no"
+                android:background="@drawable/input_gradient"
+                android:drawableStart="@drawable/ic_email"
+                android:fontFamily="@font/russo_one"
+                android:gravity="center"
+                android:hint="@string/email"
+                android:inputType="text"
+                android:padding="16dp"
+                android:paddingEnd="46dp"
+                android:textColor="@color/epochOnCard"
+                android:textColorHint="@color/hints"
+                android:textSize="20sp"
+                tools:ignore="RtlSymmetry" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="48dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/password"
+                android:textColor="@color/epochOnCard"
+                android:textColorHint="@color/hints"
+                app:passwordToggleDrawable="@drawable/ic_eye"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/epochOnCard">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:background="@drawable/input_gradient"
+                    android:drawableStart="@drawable/ic_password"
+                    android:fontFamily="@font/russo_one"
+                    android:gravity="center"
+                    android:inputType="textPassword"
+                    android:paddingEnd="46dp"
+                    android:textSize="20sp"
+                    tools:ignore="RtlSymmetry" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/goToSignUpBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/russo_one"
+                android:minHeight="48dp"
+                android:padding="0dp"
+                android:text="@string/registration"
+                android:textColor="@color/mainHint"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/goToRecoveryBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/russo_one"
+                android:minHeight="48dp"
+                android:padding="0dp"
+                android:text="@string/recovery"
+                android:textColor="@color/mainHint"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="48dp"
+                android:minWidth="200dp"
+                android:minHeight="50dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:contentDescription="@string/googleSignIn"
+                    android:minWidth="40dp"
+                    android:padding="20dp"
+                    android:scaleX="3"
+                    android:scaleY="3"
+                    android:src="@drawable/google_sign_in" />
+
+                <Button
+                    android:id="@+id/signInBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/mainBtn"
+                    android:fontFamily="@font/russo_one"
+                    android:paddingVertical="12dp"
+                    android:text="@string/enter"
+
+                    android:textSize="24sp"
+
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
