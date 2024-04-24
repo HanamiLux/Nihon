@@ -143,6 +143,11 @@
             android:layout_margin="32dp"
             android:paddingVertical="12dp"
             />
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/sign_bg"
+            android:contentDescription="@string/recovering"
+            android:scaleType="fitEnd"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

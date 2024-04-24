@@ -16,4 +16,6 @@
     <string name="recovering">Восстановление</string>
     <string name="recoveringText">" На указанный адрес почты будет отправлена ссылка для восстановления пароля"</string>
     <string name="recovery2">Восстановить</string>
+    <string name="test">Тест</string>
+    <string name="moreInfo">Подробнее</string>
 </resources>
