@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel)
     //Coroutines
     implementation(libs.kotlinx.coroutines)
+    //PDF view
+    implementation(libs.pdf.viewer)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

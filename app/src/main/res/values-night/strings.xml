@@ -18,4 +18,24 @@
     <string name="recovery2">Восстановить</string>
     <string name="test">Тест</string>
     <string name="moreInfo">Подробнее</string>
+    <string name="historyHeader">История</string>
+    <string name="navdrawer">navdrawer</string>
+    <string name="celebratesHeader">Праздники</string>
+    <string name="dateValue">24.04.2024</string>
+    <string name="filter">filter</string>
+    <string name="name">Название</string>
+    <string name="season">Сезон</string>
+    <string name="all">Все</string>
+    <string name="spring">Весна</string>
+    <string name="summer">Лето</string>
+    <string name="autumn">Осень</string>
+    <string name="winter">Зима</string>
+    <string name="epochNameExample">Эпоха</string>
+    <string name="celebrationNameExample">Праздник</string>
+    <string name="follow_button">follow button</string>
+    <string name="profile">Профиль</string>
+    <string name="settings">Настройки</string>
+    <string name="aboutUs">О приложении</string>
+    <string name="shareApp">Поделиться</string>
+    <string name="signOut">Выйти</string>
 </resources>

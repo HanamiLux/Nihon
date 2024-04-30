@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LearnEpochActivity">
+
+    <ImageButton
+        android:id="@+id/navDrawerBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/navdrawer"
+        android:background="@color/transparent"
+        app:srcCompat="@drawable/btn_navdrawer_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/goBackBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/navdrawer"
+        android:background="@color/transparent"
+        app:srcCompat="@drawable/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fontFamily="@font/russo_one"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/epochNameExample"
+        android:textColor="@color/mainHeader"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navDrawerBtn"
+        app:layout_constraintBottom_toTopOf="@id/sepLine"
+        app:layout_constraintVertical_weight="0.8"
+        />
+    <View
+        android:id="@+id/sepLine"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/separator_line_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        app:layout_constraintVertical_weight="0.3"/>
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sepLine"
+        android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintVertical_weight="9"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

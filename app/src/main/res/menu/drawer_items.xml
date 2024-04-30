@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/profile"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_profile"/>
+    <item
+        android:id="@+id/history"
+        android:title="@string/historyHeader"
+        android:icon="@drawable/ic_history"/>
+    <item
+        android:id="@+id/celebrates"
+        android:title="@string/celebratesHeader"
+        android:icon="@drawable/ic_profile"/>
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_settings"/>
+    <item
+        android:id="@+id/aboutApp"
+        android:title="@string/aboutUs"
+        android:icon="@drawable/ic_about"/>
+    <item
+        android:id="@+id/shareApp"
+        android:title="@string/shareApp"
+        android:icon="@drawable/ic_share"/>
+    <item
+        android:id="@+id/signOut"
+        android:title="@string/signOut"
+        android:icon="@drawable/ic_sign_out"/>
+
+</menu>
