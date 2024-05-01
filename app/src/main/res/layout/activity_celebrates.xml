@@ -83,13 +83,14 @@
         app:layout_constraintBottom_toTopOf="@id/pdfView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_weight="3.2"
+        app:layout_constraintVertical_weight="3"
         android:visibility="visible">
         <LinearLayout
             android:id="@+id/linearLayoutInputs"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/input"
                 android:textSize="20sp"
-                android:minHeight="48dp"
+                android:minHeight="50dp"
                 android:textColorHint="@color/hints"
                 android:fontFamily="@font/russo_one"
                 android:hint="@string/name"
@@ -110,7 +111,46 @@
                 android:autofillHints="no"
                 android:inputType="text"
                 android:padding="8dp"
-                android:layout_margin="16dp"/>
+                android:paddingEnd="12dp"
+                android:paddingStart="16dp"
+                android:layout_margin="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input"
+                android:textSize="20sp"
+                android:minHeight="50dp"
+                android:textColorHint="@color/hints"
+                android:fontFamily="@font/russo_one"
+                android:hint="@string/startDate"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:textColor="@color/epochOnCard"
+                android:autofillHints="no"
+                android:inputType="date"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp"
+                android:padding="8dp"
+                android:layout_margin="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input"
+                android:textSize="20sp"
+                android:minHeight="50dp"
+                android:textColorHint="@color/hints"
+                android:fontFamily="@font/russo_one"
+                android:hint="@string/endDate"
+                android:drawableEnd="@drawable/ic_calendar"
+                android:textColor="@color/epochOnCard"
+                android:autofillHints="no"
+                android:inputType="date"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp"
+                android:padding="8dp"
+                android:layout_margin="12dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -129,7 +169,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
-                android:layout_marginVertical="4dp"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/russo_one"
                 android:gravity="center"
                 android:text="@string/season"
@@ -143,9 +183,10 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
-                android:layout_marginVertical="2dp"
+                android:layout_marginBottom="2dp"
                 android:backgroundTint="@color/mainBtn"
                 android:fontFamily="@font/russo_one"
                 android:text="@string/all"
@@ -153,7 +194,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginVertical="2dp"
                 android:backgroundTint="@color/mainBtn"
@@ -163,7 +204,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginVertical="2dp"
                 android:backgroundTint="@color/mainBtn"
@@ -173,7 +214,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginVertical="2dp"
                 android:backgroundTint="@color/mainBtn"
@@ -183,7 +224,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginVertical="2dp"
                 android:backgroundTint="@color/mainBtn"
