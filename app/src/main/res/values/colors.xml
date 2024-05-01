@@ -10,5 +10,6 @@
     <color name="epochOnCard">#FFF0F0F0</color>
     <color name="forEye">#FFFFFBF6</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="transparentBlack70">#70000000</color>
     <color name="gradientEnd">#3F0000</color>
 </resources>

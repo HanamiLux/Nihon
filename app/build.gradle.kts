@@ -55,7 +55,9 @@ dependencies {
     //Coroutines
     implementation(libs.kotlinx.coroutines)
     //PDF view
-    implementation(libs.pdf.viewer)
+   // implementation(libs.pdf.viewer)
+    //Circled image views
+    implementation(libs.circleImageView)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -1,41 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    App name-->
     <string name="app_name">Nihon History</string>
+    <!--    Buttons text-->
+    <string name="recovery2">Восстановить</string>
+    <string name="test">Тест</string>
+    <string name="moreInfo">Подробнее</string>
+    <string name="enter">Войти</string>
+    <string name="recovery"><u>Восстановить пароль</u></string>
+    <string name="registration"><u>Зарегистрироваться</u></string>
+    <string name="confirm">Подтвердить</string>
+    <!--    ContentDescriptions for Images-->
+    <string name="follow_button">follow button</string>
+    <string name="filter">filter</string>
+    <string name="navdrawer">navdrawer</string>
     <string name="go_back">Go back</string>
-    <string name="signIn">Авторизация</string>
+    <string name="googleSignIn">Google sign in</string>
+    <!--    Edit texts hints-->
     <string name="login">Логин</string>
     <string name="email">E-mail</string>
     <string name="password">Пароль</string>
     <string name="repeatPassword">Повтор пароля</string>
-    <string name="confirm">Подтвердить</string>
-    <string name="signUp">Регистрация</string>
-    <string name="registration"><u>Зарегистрироваться</u></string>
-    <string name="recovery"><u>Восстановить пароль</u></string>
-    <string name="enter">Войти</string>
-    <string name="googleSignIn">Войти через Google</string>
-    <string name="recovering">Восстановление</string>
-    <string name="recoveringText">" На указанный адрес почты будет отправлена ссылка для восстановления пароля"</string>
-    <string name="recovery2">Восстановить</string>
-    <string name="test">Тест</string>
-    <string name="moreInfo">Подробнее</string>
-    <string name="historyHeader">История</string>
-    <string name="navdrawer">navdrawer</string>
-    <string name="celebratesHeader">Праздники</string>
-    <string name="dateValue">24.04.2024</string>
-    <string name="filter">filter</string>
+    <!--    Filter edit texts hints-->
     <string name="name">Название</string>
+    <!--    Filter sub header-->
     <string name="season">Сезон</string>
+    <!--    Filter buttons text-->
     <string name="all">Все</string>
     <string name="spring">Весна</string>
     <string name="summer">Лето</string>
     <string name="autumn">Осень</string>
     <string name="winter">Зима</string>
+    <!--    Headers-->
+    <string name="historyHeader">История</string>
+    <string name="celebratesHeader">Праздники</string>
+    <string name="recovering">Восстановление</string>
+    <string name="signUp">Регистрация</string>
+    <string name="signIn">Авторизация</string>
+    <!--    Stub headers-->
     <string name="epochNameExample">Эпоха</string>
     <string name="celebrationNameExample">Праздник</string>
-    <string name="follow_button">follow button</string>
+    <string name="dateValue">24.04.2024</string>
+    <!--    Navigation drawer elements text-->
     <string name="profile">Профиль</string>
     <string name="settings">Настройки</string>
     <string name="aboutUs">О приложении</string>
     <string name="shareApp">Поделиться</string>
     <string name="signOut">Выйти</string>
+    <!--    Name of epochs-->
+    <string name="iwajuku">Ивадзюку</string>
+    <string name="jomon">Дзёмон</string>
+    <string name="yayoi">Яёй</string>
+    <string name="yamato">Ямато</string>
+    <string name="nara">Нара</string>
+    <string name="heyan">Хэйан</string>
+    <string name="kamakura">Камакура</string>
+    <string name="muromachi">Муромати</string>
+    <string name="azuchi_momoyama">Адзути- Момояма</string>
+    <string name="edo">Эдо</string>
+    <string name="meiji">Мэйдзи</string>
+    <string name="taisho">Тайсё</string>
+    <string name="showa">Сёва</string>
+    <string name="heisei">Хэйсэй</string>
+    <string name="reiwa">Рэйва</string>
+    <!--    Other-->
+    <string name="recoveringText">На указанный адрес почты будет отправлена ссылка для восстановления пароля</string>
 </resources>

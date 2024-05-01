@@ -1,19 +1,20 @@
 [versions]
-agp = "8.3.0"
+agp = "8.3.2"
 kotlin = "1.9.0"
-coreKtx = "1.12.0"
+coreKtx = "1.13.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.11.0"
-activity = "1.8.0"
+activity = "1.9.0"
 constraintlayout = "2.1.4"
 roomVersion = "2.6.1"
 coroutinesVersion = "1.8.0"
 lifecycleVersion = "2.7.0"
 compilerKspVersion = "1.9.10-1.0.13"
 pdfViewerVersion = "2.8.2"
+circleImageViewVersion = "3.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,11 +31,10 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 androidx-room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
 kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesVersion" }
-pdf-viewer = {group = "com.github.barteksc", name = "android-pdf-viewer", version.ref = "pdfViewerVersion"}
+pdf-viewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version.ref = "pdfViewerVersion" }
+circleImageView = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleImageViewVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compilerKsp = { id = "com.google.devtools.ksp", version.ref = "compilerKspVersion" }
-
-
