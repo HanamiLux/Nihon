@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    App name-->
     <string name="app_name">Nihon History</string>
@@ -23,6 +22,8 @@
     <string name="repeatPassword">Повтор пароля</string>
     <!--    Filter edit texts hints-->
     <string name="name">Название</string>
+    <string name="startDate">Дата начала</string>
+    <string name="endDate">Дата окончания</string>
     <!--    Filter sub header-->
     <string name="season">Сезон</string>
     <!--    Filter buttons text-->
@@ -37,9 +38,12 @@
     <string name="recovering">Восстановление</string>
     <string name="signUp">Регистрация</string>
     <string name="signIn">Авторизация</string>
-    <!--    Stub headers-->
+    <string name="repeatHeader">Повторите</string>
+    <string name="selectedCelebrates">Избранные праздники</string>
+    <!--    Stubs-->
     <string name="epochNameExample">Эпоха</string>
     <string name="celebrationNameExample">Праздник</string>
+    <string name="percentsExample">60%</string>
     <string name="dateValue">24.04.2024</string>
     <!--    Navigation drawer elements text-->
     <string name="profile">Профиль</string>
@@ -63,6 +67,7 @@
     <string name="showa">Сёва</string>
     <string name="heisei">Хэйсэй</string>
     <string name="reiwa">Рэйва</string>
+    <string name="general">Общий тест</string>
     <!--    Other-->
     <string name="recoveringText">На указанный адрес почты будет отправлена ссылка для восстановления пароля</string>
 </resources>
