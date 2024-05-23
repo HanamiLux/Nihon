@@ -45,7 +45,6 @@
                 android:layout_width="134dp"
                 android:layout_height="138dp"
                 android:src="@drawable/sign_bg" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

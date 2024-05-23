@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "871103070773",
+    "project_id": "hanami-aa4e0",
+    "storage_bucket": "hanami-aa4e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871103070773:android:ec66fa7ff892bc27ee277c",
+        "android_client_info": {
+          "package_name": "com.example.nihonhistory"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeGu_ifv-TJ1meS-ldrBIPR1QstrHQVhs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -44,6 +44,7 @@
             android:layout_marginVertical="48dp">
 
             <EditText
+                android:id="@+id/emailET"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="48dp"
@@ -54,7 +55,7 @@
                 android:fontFamily="@font/russo_one"
                 android:gravity="center"
                 android:hint="@string/email"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:padding="16dp"
                 android:paddingEnd="46dp"
                 android:textColor="@color/epochOnCard"
@@ -68,22 +69,25 @@
                 android:layout_marginHorizontal="48dp"
                 android:layout_marginTop="16dp"
                 android:hint="@string/password"
-                android:textColor="@color/epochOnCard"
                 android:textColorHint="@color/hints"
+                app:hintTextColor="@color/transparent"
                 app:passwordToggleDrawable="@drawable/ic_eye"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/epochOnCard">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordET"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:background="@drawable/input_gradient"
-                    android:drawableStart="@drawable/ic_password"
+                    android:drawableStart="@drawable/ic_passwords"
                     android:fontFamily="@font/russo_one"
                     android:gravity="center"
                     android:inputType="textPassword"
                     android:paddingEnd="46dp"
+                    android:textColor="@color/epochOnCard"
                     android:textSize="20sp"
+                    app:hintTextColor="@color/transparent"
                     tools:ignore="RtlSymmetry" />
             </com.google.android.material.textfield.TextInputLayout>
 
