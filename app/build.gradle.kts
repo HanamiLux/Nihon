@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.compilerKsp)
+    alias(libs.plugins.googleService)
 }
 
 android {
@@ -34,6 +35,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 
@@ -45,6 +49,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    //Firebase authentication
+    implementation(libs.firebase.auth.ktx)
     //Room
     ksp(libs.androidx.room.ksp)
     implementation(libs.androidx.room)
@@ -58,6 +64,8 @@ dependencies {
     implementation(libs.pdf.viewer)
     //Circled image views
     implementation(libs.circleImageView)
+    //Firebase version control
+    implementation(platform(libs.firebase.bom))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -15,6 +15,9 @@ lifecycleVersion = "2.7.0"
 compilerKspVersion = "1.9.10-1.0.13"
 pdfViewerVersion = "2.8.2"
 circleImageViewVersion = "3.1.0"
+googleServiceVersion = "4.4.1"
+firebaseBomVersion = "33.0.0"
+firebaseAuthKtx = "23.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,8 +36,11 @@ androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle
 kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesVersion" }
 pdf-viewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version.ref = "pdfViewerVersion" }
 circleImageView = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleImageViewVersion" }
+firebase-bom = {group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBomVersion"}
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compilerKsp = { id = "com.google.devtools.ksp", version.ref = "compilerKspVersion" }
+googleService = {id = "com.google.gms.google-services", version.ref = "googleServiceVersion"}
