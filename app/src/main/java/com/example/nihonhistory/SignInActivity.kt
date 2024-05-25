@@ -8,9 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nihonhistory.databinding.ActivitySignInBinding
+import com.example.nihonhistory.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -36,7 +40,7 @@ class SignInActivity : AppCompatActivity() {
                 finish()
             }
             signInBtn.setOnClickListener {
-//                signIn()
+                signIn()
             }
         }
 
@@ -44,28 +48,29 @@ class SignInActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
     }
 
-//    private fun signIn() = with(binding){
-//        val db = AppDatabase.getDbInstance(applicationContext).usersDao()
-//        val email = emailET.text.toString().trim()
-//        val password = passwordET.text.toString().trim()
-//        if (email.isEmpty() || password.isEmpty()) {
-//            Toast.makeText(this@SignInActivity, "Заполните пустые поля!", Toast.LENGTH_SHORT).show()
-//            return@with
-//        }
-//
-//        auth.signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    if(db.getUser(emailText) == null){
-//                        db.insertUser(User(null, emailText, passwordText))
-//                    }
-//
-//                    startActivity(Intent(this@SignInActivity, HistoryActivity::class.java))
-//                    finish()
-//                }
-//            }
-//            .addOnFailureListener {
-//                Toast.makeText(this@SignInActivity, "Данные не подходят!", Toast.LENGTH_SHORT).show()
-//            }
-//    }
+    private fun signIn() = with(binding){
+        val db = AppDatabase.getDbInstance(this@SignInActivity).usersDao()
+        val email = emailET.text.toString().trim()
+        val password = passwordET.text.toString().trim()
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this@SignInActivity, "Заполните пустые поля!", Toast.LENGTH_SHORT).show()
+            return@with
+        }
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    CoroutineScope(Dispatchers.Default).launch {
+                        if (db.getUserByEmail(email) == null) {
+                            db.insertUser(User(null, "Newbie", password, email))
+                        }
+                    }
+                        startActivity(Intent(this@SignInActivity, HistoryActivity::class.java))
+                        finish()
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(this@SignInActivity, "Данные не подходят!", Toast.LENGTH_SHORT).show()
+            }
+    }
 }

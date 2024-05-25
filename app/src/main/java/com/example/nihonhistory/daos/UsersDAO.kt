@@ -9,12 +9,12 @@ import com.example.nihonhistory.models.User
 @Dao
 interface UsersDAO {
     @Insert
-    fun insertUser(order: User)
+    suspend fun insertUser(order: User)
 
     @Update
-    fun updateUser(order: User)
+    suspend fun updateUser(order: User)
 
-    @Query("SELECT * FROM Users WHERE login = :userLogin")
-    fun getUserByLogin(userLogin: String): User
+    @Query("SELECT * FROM Users WHERE email = :userEmail")
+    suspend fun getUserByEmail(userEmail: String): User
 
 }

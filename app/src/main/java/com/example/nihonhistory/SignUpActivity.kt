@@ -11,8 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nihonhistory.databinding.ActivitySignUpBinding
+import com.example.nihonhistory.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -34,7 +38,7 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
-  //      val db: AppDatabase = AppDatabase.getDbInstance(context.applicationContext)
+        val db: AppDatabase = AppDatabase.getDbInstance(this@SignUpActivity)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -54,9 +58,11 @@ class SignUpActivity : AppCompatActivity() {
                     .addOnSuccessListener{
                         val firebaseUser : FirebaseUser? = auth.currentUser
                         Toast.makeText(this@SignUpActivity, "Пользователь ${firebaseUser?.email} зарегистрирован!", Toast.LENGTH_SHORT).show()
-                        //                if(db.usersDao().getUser(login) == null){
-//                    db.usersDao().insertUser(User(null, login, password))
-//                }
+                        CoroutineScope(Dispatchers.Default).launch {
+                            if(db.usersDao().getUserByEmail(email) == null){
+                                db.usersDao().insertUser(User(null, login, password, email))
+                        }
+                }
                         startActivity(Intent(this@SignUpActivity, SignInActivity::class.java))
                         finish()
                     }
@@ -67,6 +73,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+/**Input fields data validation*/
     private fun isDataValid(): Boolean = with(binding) {
 
         if (passwordET.text.toString() != passwordET2.text.toString()) { // Comparison validation
