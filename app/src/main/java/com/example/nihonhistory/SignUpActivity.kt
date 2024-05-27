@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.security.MessageDigest
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -34,16 +35,10 @@ class SignUpActivity : AppCompatActivity() {
     private val passwordRegex = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^a-zA-Z\\d]).{8,}$")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
         val db: AppDatabase = AppDatabase.getDbInstance(this@SignUpActivity)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         binding.apply{
 
             goBackBtn.setOnClickListener {
@@ -53,14 +48,17 @@ class SignUpActivity : AppCompatActivity() {
 
             registerBtn.setOnClickListener {
                 if(!isDataValid()) return@setOnClickListener
+                val hashedPassword = MessageDigest.getInstance("SHA-256")
+                    .digest(password.toByteArray())
+                    .fold(""){ str, it -> str + "%02x".format(it) }
 
-                auth.createUserWithEmailAndPassword(email, password)
+                auth.createUserWithEmailAndPassword(email, hashedPassword)
                     .addOnSuccessListener{
                         val firebaseUser : FirebaseUser? = auth.currentUser
                         Toast.makeText(this@SignUpActivity, "Пользователь ${firebaseUser?.email} зарегистрирован!", Toast.LENGTH_SHORT).show()
                         CoroutineScope(Dispatchers.Default).launch {
                             if(db.usersDao().getUserByEmail(email) == null){
-                                db.usersDao().insertUser(User(null, login, password, email))
+                                db.usersDao().insertUser(User(null, login, hashedPassword, email))
                         }
                 }
                         startActivity(Intent(this@SignUpActivity, SignInActivity::class.java))
@@ -105,13 +103,11 @@ class SignUpActivity : AppCompatActivity() {
             return@with false
         }
         showError(passwordErrorTW, false)
-        bottomIW.animate().alpha(1f).setDuration(300).withStartAction(){ bottomIW.visibility = View.VISIBLE }.start()
         return@with true
     }
 
     private fun showError(textView: TextView, isVisible: Boolean) = with(binding) {
         if (isVisible) {
-            bottomIW.animate().alpha(0f).setDuration(300).withEndAction{ bottomIW.visibility = View.GONE }.start()
             textView.alpha = 0f
             textView.visibility = View.VISIBLE
             textView.animate().alpha(1f).setDuration(500).start()
@@ -120,5 +116,11 @@ class SignUpActivity : AppCompatActivity() {
                 textView.visibility = View.GONE
             }.start()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this@SignUpActivity, SignInActivity::class.java))
+        finish()
     }
 }

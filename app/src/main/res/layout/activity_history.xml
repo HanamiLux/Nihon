@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/drawerLayout"
+    android:layout_gravity="start"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HistoryActivity">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:menu="@menu/drawer_items"
+        app:itemIconTint="@color/mainHeader"
+        android:theme="@style/ThemeOverlay.App.NavigationView"
+        app:headerLayout="@layout/drawer_header"
+        app:itemTextAppearance="@style/NavigationViewItemTextAppearance"
+        app:itemTextColor="@color/mainHeader"
+        android:fitsSystemWindows="true"
+        android:layout_gravity="start">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/russo_one"
+            android:gravity="bottom|center_horizontal"
+            android:text="@string/AppVersion"
+            android:textColor="@color/hints"
+            android:layout_marginBottom="4dp"
+            android:textSize="14sp"
+            />
+    </com.google.android.material.navigation.NavigationView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/navDrawerBtn"
@@ -60,4 +88,5 @@
         app:layout_constraintVertical_weight="9"
         tools:listitem="@layout/card_epoch"
         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

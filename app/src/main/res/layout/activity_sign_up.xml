@@ -152,15 +152,6 @@
             android:layout_margin="32dp"
             android:paddingVertical="12dp"
             />
-        <ImageView
-            android:id="@+id/bottomIW"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/sign_bg"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitXY"
-            android:layout_marginTop="10dp"
-            android:visibility="visible"/>
         <TextView
             android:id="@+id/passwordErrorTW"
             android:layout_width="match_parent"

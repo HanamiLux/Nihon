@@ -3,7 +3,17 @@
     <style name="Base.Theme.NihonHistory" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:navigationBarColor">@color/mainHeader</item>
     </style>
 
     <style name="Theme.NihonHistory" parent="Base.Theme.NihonHistory" />
+    <style name="ThemeOverlay.App.NavigationView" parent="">
+        <item name="colorOutline">@drawable/separator_line_horizontal</item>
+    </style>
+    <style name="NavigationViewItemTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/russo_one</item>
+        <item name="android:layout_marginVertical">11dp</item>
+    </style>
 </resources>
