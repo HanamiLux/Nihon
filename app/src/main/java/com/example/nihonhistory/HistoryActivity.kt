@@ -1,12 +1,10 @@
 package com.example.nihonhistory
-
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.nihonhistory.databinding.ActivityHistoryBinding
+import com.example.nihonhistory.helpers.NavViewListener
 
 class HistoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHistoryBinding
@@ -14,9 +12,13 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.navDrawerBtn.setOnClickListener {
-            binding.drawerLayout.open()
+        binding.apply{
+            navDrawerBtn.setOnClickListener {
+                drawerLayout.open()
+            }
+            NavViewListener().setup(includedNavView.navView, this@HistoryActivity)
         }
+
     }
 
     override fun onBackPressed() = with(binding) {

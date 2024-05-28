@@ -71,7 +71,7 @@
                 android:hint="@string/password"
                 android:textColorHint="@color/hints"
                 app:hintTextColor="@color/transparent"
-                app:passwordToggleDrawable="@drawable/ic_eye"
+                app:passwordToggleDrawable="@drawable/password_toggle_selector"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/epochOnCard">
 

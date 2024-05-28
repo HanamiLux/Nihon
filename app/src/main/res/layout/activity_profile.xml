@@ -1,978 +1,988 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="500dp"
-        android:background="@drawable/profile_background_gradient"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/scrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1.2">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/profile"
-            android:scaleType="centerCrop"
-            android:src="@drawable/profile_header" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="134dp"
-                android:layout_height="138dp"
-                android:src="@drawable/sign_bg" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/russo_one"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="32sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:fontFamily="@font/russo_one"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-
-    </FrameLayout>
-
-
-    <ImageButton
-        android:id="@+id/navDrawerBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/transparent"
-        android:contentDescription="@string/navdrawer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_navdrawer_white" />
-
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintVertical_weight="3">
-
-        <LinearLayout
+        <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical">
+            android:layout_marginBottom="500dp"
+            android:background="@drawable/profile_background_gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <GridLayout
+        <FrameLayout
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/scrollView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1.2">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/profile"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_header" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginTop="16dp"
-                android:columnCount="4">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/iwajuku_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/iwajuku"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/iwajuku"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/jomon_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/jomon"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/jomon"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/yayoi_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/yayoi"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/yayoi"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/yamato_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/yamato"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/yamato"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/nara_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/nara"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/nara"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/heyan_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/heyan"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/heyan"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/kamakura_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/kamakura"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/kamakura"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/muromachi_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/muromachi"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/muromachi"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/azuchi_momoyama_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/azuchi_momoyama"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/azuchi_momoyama"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/edo_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/iwajuku"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/edo"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/edo_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/meiji"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/meiji"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/edo_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/taisho"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/taisho"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/edo_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/showa"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/showa"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/edo_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/heisei"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/heisei"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/edo_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/reiwa"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/reiwa"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/transparent"
-                            android:contentDescription="@string/test"
-                            android:src="@drawable/general_result" />
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="12dp"
-                            android:contentDescription="@string/general"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_completation" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/russo_one"
-                            android:gravity="center"
-                            android:maxLines="1"
-                            android:text="@string/percentsExample"
-                            android:textColor="@color/epochOnCard"
-                            android:textSize="16sp" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/russo_one"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/general"
-                        android:textColor="@color/mainHeader"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-            </GridLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginVertical="12dp"
-                android:background="@drawable/separator_line_horizontal" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/russo_one"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
-                android:text="@string/repeatHeader"
-                android:textColor="@color/mainHeader"
-                android:textSize="40sp" />
+                android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewRepeat"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="134dp"
+                    android:layout_height="138dp"
+                    android:src="@drawable/sign_bg" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/russo_one"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/russo_one"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+        <ImageButton
+            android:id="@+id/navDrawerBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/transparent"
+            android:contentDescription="@string/navdrawer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/btn_navdrawer_white" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintVertical_weight="3">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="16dp"
-                android:orientation="vertical"
-                tools:listitem="@layout/card_epoch" />
+                android:layout_height="0dp"
+                android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginVertical="12dp"
-                android:background="@drawable/separator_line_horizontal" />
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginTop="16dp"
+                    android:columnCount="4">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/russo_one"
-                android:gravity="center"
-                android:text="@string/selectedCelebrates"
-                android:textColor="@color/mainHeader"
-                android:textSize="30sp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewSelectedCelebrates"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="16dp"
-                android:orientation="vertical"
-                tools:listitem="@layout/card_epoch" />
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
 
-        </LinearLayout>
-    </ScrollView>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/iwajuku_result" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/iwajuku"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/iwajuku"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/jomon_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/jomon"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/jomon"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/yayoi_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/yayoi"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/yayoi"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/yamato_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/yamato"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/yamato"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/nara_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/nara"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/nara"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/heyan_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/heyan"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/heyan"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/kamakura_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/kamakura"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/kamakura"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/muromachi_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/muromachi"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/muromachi"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/azuchi_momoyama_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/azuchi_momoyama"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/azuchi_momoyama"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/edo_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/iwajuku"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/edo"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/edo_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/meiji"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/meiji"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:paddingTop="8dp">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/edo_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/taisho"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/taisho"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/edo_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/showa"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/showa"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/edo_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/heisei"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/heisei"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/edo_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/reiwa"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/reiwa"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:contentDescription="@string/test"
+                                android:src="@drawable/general_result" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="12dp"
+                                android:contentDescription="@string/general"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_completation" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/russo_one"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:text="@string/percentsExample"
+                                android:textColor="@color/epochOnCard"
+                                android:textSize="16sp" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/russo_one"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@string/general"
+                            android:textColor="@color/mainHeader"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </GridLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/separator_line_horizontal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/russo_one"
+                    android:gravity="center"
+                    android:text="@string/repeatHeader"
+                    android:textColor="@color/mainHeader"
+                    android:textSize="40sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewRepeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginVertical="16dp"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/card_epoch" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/separator_line_horizontal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/russo_one"
+                    android:gravity="center"
+                    android:text="@string/selectedCelebrates"
+                    android:textColor="@color/mainHeader"
+                    android:textSize="30sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewSelectedCelebrates"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginVertical="16dp"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/card_epoch" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/includedNavView"
+        layout="@layout/nav_drawer" />
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,4 +1,4 @@
-package com.example.nihonhistory
+package com.example.nihonhistory.helpers
 
 import androidx.room.TypeConverter
 import java.util.Date
