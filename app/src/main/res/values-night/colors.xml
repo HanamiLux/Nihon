@@ -11,4 +11,5 @@
     <color name="forEye">#FFFFFBF6</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="gradientEnd">#3F0000</color>
+    <color name="optionGradientStart">#2F2F2F</color>
 </resources>

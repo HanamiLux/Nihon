@@ -148,9 +148,7 @@
                     android:fontFamily="@font/russo_one"
                     android:paddingVertical="12dp"
                     android:text="@string/enter"
-
                     android:textSize="24sp"
-
                     />
             </LinearLayout>
         </LinearLayout>

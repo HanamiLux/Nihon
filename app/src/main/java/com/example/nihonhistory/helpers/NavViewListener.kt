@@ -7,12 +7,15 @@ import android.util.Log
 import android.widget.Toast
 import com.example.nihonhistory.AboutAppActivity
 import com.example.nihonhistory.CelebratesActivity
+import com.example.nihonhistory.HistoryActivity
 import com.example.nihonhistory.ProfileActivity
 import com.example.nihonhistory.R
 import com.example.nihonhistory.SettingsActivity
 import com.example.nihonhistory.ShareAppActivity
 import com.example.nihonhistory.SignInActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class NavViewListener {
     fun setup(navView: NavigationView, activity: Activity) {
@@ -20,6 +23,10 @@ class NavViewListener {
             val handled = when (item.itemId) {
                 R.id.profile -> {
                     activity.startActivity(Intent(activity, ProfileActivity::class.java))
+                    true
+                }
+                R.id.history -> {
+                    activity.startActivity(Intent(activity, HistoryActivity::class.java))
                     true
                 }
 
@@ -44,6 +51,7 @@ class NavViewListener {
                 }
 
                 R.id.signOut -> {
+                    Firebase.auth.signOut()
                     activity.startActivity(Intent(activity, SignInActivity::class.java))
                     true
                 }

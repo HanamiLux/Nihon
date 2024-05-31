@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/forEye"
+    tools:context=".TestEpochActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageButton
+        android:id="@+id/goBackBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
+        android:contentDescription="@string/go_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_back" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/epochTitleTW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/russo_one"
+            android:gravity="center_horizontal"
+            android:text="@string/epochNameExample"
+            android:textColor="@color/mainHeader"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/dateTW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/russo_one"
+            android:gravity="center_horizontal"
+            android:text="@string/test"
+            android:textColor="@color/mainHeader"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/separator_line_horizontal" />
+
+        <TextView
+            android:id="@+id/questionTW"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/tahoma"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/test"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/separator_line_horizontal" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option1Btn"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/option_btn_bg"
+            android:fontFamily="@font/russo_one"
+            android:paddingVertical="12dp"
+            android:text="@string/enter"
+            android:textAllCaps="false"
+            android:textColor="@color/mainHeader"
+            android:textSize="36sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option2Btn"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/option_btn_bg"
+            android:fontFamily="@font/russo_one"
+            android:paddingVertical="12dp"
+            android:text="@string/epochNameExample"
+            android:textAllCaps="false"
+            android:textColor="@color/mainHeader"
+            android:textSize="36sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option3Btn"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/option_btn_bg"
+            android:fontFamily="@font/russo_one"
+            android:paddingVertical="12dp"
+            android:text="@string/app_name"
+            android:textAllCaps="false"
+            android:textColor="@color/mainHeader"
+            android:textSize="36sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option4Btn"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/option_btn_bg"
+            android:fontFamily="@font/russo_one"
+            android:paddingVertical="12dp"
+            android:text="@string/yayoi"
+            android:textAllCaps="false"
+            android:textColor="@color/mainHeader"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

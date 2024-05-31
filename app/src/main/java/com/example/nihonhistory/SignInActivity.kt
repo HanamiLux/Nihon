@@ -23,6 +23,12 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+
+        if(auth.currentUser != null){
+            startActivity(Intent(this@SignInActivity, HistoryActivity::class.java))
+            finish()
+        }
+
         binding.apply {
             goToSignUpBtn.setOnClickListener {
                 startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
@@ -37,10 +43,9 @@ class SignInActivity : AppCompatActivity() {
             }
         }
 
-
-        val currentUser = auth.currentUser
     }
 
+    /** Sign in logic*/
     private fun signIn() = with(binding){
         val db = AppDatabase.getDbInstance(this@SignInActivity).usersDao()
         val email = emailET.text.toString().trim()

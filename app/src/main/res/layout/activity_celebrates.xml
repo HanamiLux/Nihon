@@ -37,13 +37,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textViewDate"
+        app:layout_constraintBottom_toTopOf="@id/currentDateTW"
         app:layout_constraintVertical_weight="0.6"
         />
     <TextView
-        android:id="@+id/textViewDate"
+        android:id="@+id/currentDateTW"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/russo_one"
         android:gravity="center_horizontal"
         android:text="@string/dateValue"
@@ -53,7 +53,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/navDrawerBtn"
         app:layout_constraintBottom_toTopOf="@id/sepLine"
-        app:layout_constraintVertical_weight="0.4"
         />
     <ImageButton
         android:id="@+id/filterBtn"
@@ -73,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@drawable/separator_line_horizontal"
-        app:layout_constraintTop_toBottomOf="@id/textViewDate"
+        app:layout_constraintTop_toBottomOf="@id/currentDateTW"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +82,7 @@
         android:id="@+id/filterLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible">
+        android:visibility="gone">
         <LinearLayout
             android:id="@+id/linearLayoutInputs"
             android:layout_width="0dp"
@@ -97,6 +96,7 @@
             app:layout_constraintHorizontal_weight="2"
             >
             <EditText
+                android:id="@+id/filterNameET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input"
@@ -115,6 +115,7 @@
                 android:layout_margin="12dp"
                 />
             <EditText
+                android:id="@+id/filterStartDateET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input"
@@ -133,6 +134,7 @@
                 android:layout_margin="12dp"
                 />
             <EditText
+                android:id="@+id/filterEndDateET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input"
@@ -176,6 +178,7 @@
                 android:textSize="24sp" />
 
             <Button
+                android:id="@+id/filterAllSeasonsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_gravity="center"
@@ -187,6 +190,7 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/filterSpringBtn"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
@@ -197,6 +201,7 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/filterSummerBtn"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
@@ -207,6 +212,7 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/filterAutumnBtn"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
@@ -217,6 +223,7 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/filterWinterBtn"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginHorizontal="12dp"
@@ -260,7 +267,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/filterLayout"
-        android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="8dp"
         tools:listitem="@layout/card_epoch"
         />

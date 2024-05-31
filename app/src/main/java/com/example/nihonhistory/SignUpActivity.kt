@@ -104,6 +104,7 @@ class SignUpActivity : AppCompatActivity() {
         return@with true
     }
 
+    /** Show data validation errors*/
     private fun showError(textView: TextView, isVisible: Boolean) = with(binding) {
         if (isVisible) {
             textView.alpha = 0f
