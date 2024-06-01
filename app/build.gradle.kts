@@ -28,6 +28,16 @@ android {
             )
         }
     }
+
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/spring.handlers"
+            excludes += "META-INF/spring.tooling"
+            excludes += "META-INF/spring.schemas"
+            excludes += "META-INF/license.txt"
+            excludes += "META-INF/notice.txt"
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -66,6 +76,8 @@ dependencies {
     implementation(libs.circleImageView)
     //Firebase version control
     implementation(platform(libs.firebase.bom))
+    //Bcrypt
+    implementation(libs.bcrypt)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

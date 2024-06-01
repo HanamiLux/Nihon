@@ -18,7 +18,7 @@
             android:fontFamily="@font/russo_one"
             android:layout_gravity="bottom"
             android:gravity="center"
-            android:text="@string/AppVersion"
+            android:text="@string/appVersion"
             android:textColor="@color/hints"
             android:layout_marginBottom="4dp"
             android:textSize="14sp"

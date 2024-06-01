@@ -17,7 +17,8 @@ pdfViewerVersion = "2.8.2"
 circleImageViewVersion = "3.1.0"
 googleServiceVersion = "4.4.1"
 firebaseBomVersion = "33.0.0"
-firebaseAuthKtx = "23.0.0"
+firebaseAuthKtxVersion = "23.0.0"
+bcryptVersion = "5.5.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,7 +38,8 @@ kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutin
 pdf-viewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version.ref = "pdfViewerVersion" }
 circleImageView = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleImageViewVersion" }
 firebase-bom = {group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBomVersion"}
-firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtxVersion" }
+bcrypt = { group = "org.springframework.security", name = "spring-security-core", version.ref = "bcryptVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

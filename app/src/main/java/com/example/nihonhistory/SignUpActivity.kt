@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nihonhistory.databinding.ActivitySignUpBinding
 import com.example.nihonhistory.helpers.AppDatabase
+import com.example.nihonhistory.helpers.HashPassword
+import com.example.nihonhistory.helpers.NihonAnimations
 import com.example.nihonhistory.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -46,11 +48,9 @@ class SignUpActivity : AppCompatActivity() {
 
             registerBtn.setOnClickListener {
                 if(!isDataValid()) return@setOnClickListener
-                val hashedPassword = MessageDigest.getInstance("SHA-256")
-                    .digest(password.toByteArray())
-                    .fold(""){ str, it -> str + "%02x".format(it) }
+                val hashedPassword = HashPassword.hashPassword(password)
 
-                auth.createUserWithEmailAndPassword(email, hashedPassword)
+                auth.createUserWithEmailAndPassword(email, password)
                     .addOnSuccessListener{
                         val firebaseUser : FirebaseUser? = auth.currentUser
                         Toast.makeText(this@SignUpActivity, "Пользователь ${firebaseUser?.email} зарегистрирован!", Toast.LENGTH_SHORT).show()
@@ -73,49 +73,38 @@ class SignUpActivity : AppCompatActivity() {
     private fun isDataValid(): Boolean = with(binding) {
 
         if (passwordET.text.toString() != passwordET2.text.toString()) { // Comparison validation
-            showError(passwordComparisonErrorTW, true)
+            NihonAnimations.fadingViewAnimate(passwordComparisonErrorTW, true)
             return@with false
         }
-        showError(passwordComparisonErrorTW, false)
+        NihonAnimations.fadingViewAnimate(passwordComparisonErrorTW, false)
         if (emailET.text.toString().isEmpty() || passwordET.text.toString().isEmpty()) { // Empty fields validation
-            showError(emptyFieldsErrorTW, true)
+            NihonAnimations.fadingViewAnimate(emptyFieldsErrorTW, true)
             return@with false
         }
-        showError(emptyFieldsErrorTW, false)
+        NihonAnimations.fadingViewAnimate(emptyFieldsErrorTW, false)
         email = emailET.text.toString().trim()
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) { // Email format validation
-            showError(emailFormatErrorTW, true)
+            NihonAnimations.fadingViewAnimate(emailFormatErrorTW, true)
             return@with false
         }
-        showError(emailFormatErrorTW, false)
+        NihonAnimations.fadingViewAnimate(emailFormatErrorTW, false)
         login = loginET.text.toString().trim()
         password = passwordET.text.toString().trim()
 
         if (!loginRegex.matches(login)) {
-            showError(loginErrorTW, true)
+            NihonAnimations.fadingViewAnimate(loginErrorTW, true)
             return@with false
         }
-        showError(loginErrorTW, false)
+        NihonAnimations.fadingViewAnimate(loginErrorTW, false)
         if (!passwordRegex.matches(password)) {
-            showError(passwordErrorTW, true)
+            NihonAnimations.fadingViewAnimate(passwordErrorTW, true)
             return@with false
         }
-        showError(passwordErrorTW, false)
+        NihonAnimations.fadingViewAnimate(passwordErrorTW, false)
         return@with true
     }
 
-    /** Show data validation errors*/
-    private fun showError(textView: TextView, isVisible: Boolean) = with(binding) {
-        if (isVisible) {
-            textView.alpha = 0f
-            textView.visibility = View.VISIBLE
-            textView.animate().alpha(1f).setDuration(500).start()
-        } else {
-            textView.animate().alpha(0f).setDuration(500).withEndAction {
-                textView.visibility = View.GONE
-            }.start()
-        }
-    }
+
 
     override fun onBackPressed() {
         super.onBackPressed()

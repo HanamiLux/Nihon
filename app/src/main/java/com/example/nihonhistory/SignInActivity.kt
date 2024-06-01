@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nihonhistory.databinding.ActivitySignInBinding
 import com.example.nihonhistory.helpers.AppDatabase
+import com.example.nihonhistory.helpers.HashPassword
 import com.example.nihonhistory.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -50,15 +51,14 @@ class SignInActivity : AppCompatActivity() {
         val db = AppDatabase.getDbInstance(this@SignInActivity).usersDao()
         val email = emailET.text.toString().trim()
         val password = passwordET.text.toString().trim()
-        val hashedPassword = MessageDigest.getInstance("SHA-256")
-            .digest(password.toByteArray())
-            .fold(""){ str, it -> str + "%02x".format(it) }
+        val hashedPassword = HashPassword.hashPassword(password)
+
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this@SignInActivity, "Заполните пустые поля!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@SignInActivity, getString(R.string.emptyFields), Toast.LENGTH_SHORT).show()
             return@with
         }
 
-        auth.signInWithEmailAndPassword(email, hashedPassword)
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     CoroutineScope(Dispatchers.Default).launch {
@@ -71,7 +71,8 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this@SignInActivity, "Данные не подходят!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignInActivity,
+                    getString(R.string.incorrectLogin), Toast.LENGTH_SHORT).show()
             }
     }
 }
