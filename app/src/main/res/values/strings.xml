@@ -92,6 +92,7 @@
     <string name="recoveryFailedSend">Ошибка отправки email: %1$s</string>
     <string name="incorrectLogin">Данные не подходят!</string>
     <string name="emptyFields">Заполните пустые поля!</string>
+    <string name="successfullyRegistered">Пользователь %1$s зарегистрирован!</string>
 
 
 </resources>

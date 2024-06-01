@@ -15,6 +15,6 @@ interface UsersDAO {
     suspend fun updateUser(order: User)
 
     @Query("SELECT * FROM Users WHERE email = :userEmail")
-    suspend fun getUserByEmail(userEmail: String): User
+    suspend fun getUserByEmail(userEmail: String): User?
 
 }

@@ -53,7 +53,8 @@ class SignUpActivity : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnSuccessListener{
                         val firebaseUser : FirebaseUser? = auth.currentUser
-                        Toast.makeText(this@SignUpActivity, "Пользователь ${firebaseUser?.email} зарегистрирован!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@SignUpActivity,
+                            getString(R.string.successfullyRegistered, firebaseUser?.email), Toast.LENGTH_SHORT).show()
                         CoroutineScope(Dispatchers.Default).launch {
                             if(db.usersDao().getUserByEmail(email) == null){
                                 db.usersDao().insertUser(User(null, login, hashedPassword, email))
