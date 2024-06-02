@@ -1,6 +1,8 @@
 package com.example.nihonhistory
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -61,13 +63,17 @@ class SignInActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    val user = User(null, hashedPassword, email)
                     CoroutineScope(Dispatchers.Default).launch {
                         if (db.getUserByEmail(email) == null) {
-                            db.insertUser(User(null, "", hashedPassword, email))
+                            db.insertUser(user)
                         }
                     }
-                        startActivity(Intent(this@SignInActivity, HistoryActivity::class.java))
-                        finish()
+                    val spEditor = getSharedPreferences("User", Context.MODE_PRIVATE).edit()
+                    spEditor.putString("email", user.email).apply()
+                    startActivity(Intent(this@SignInActivity, HistoryActivity::class.java))
+                    finish()
+
                 }
             }
             .addOnFailureListener {

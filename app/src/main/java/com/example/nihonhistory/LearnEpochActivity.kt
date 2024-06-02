@@ -48,7 +48,7 @@ class LearnEpochActivity : AppCompatActivity() {
                 nameOfEpoch = "nara"
             }
 
-            getString(R.string.heyan) -> {
+            getString(R.string.heian) -> {
                 nameOfEpoch = "heyan"
             }
 

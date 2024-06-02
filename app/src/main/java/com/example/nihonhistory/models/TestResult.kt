@@ -17,14 +17,14 @@ data class TestResult(
     @PrimaryKey(autoGenerate = true)
     var id: Int?,
     var user_id: Int,
-    var iwajuku_test: Double,
-    var jomon_test: Double,
-    var yayoi_test: Double,
-    var yamato_test: Double,
-    var nara_test: Double,
-    var heyan_test: Double,
-    var kamakura_test: Double,
-    var muromachi_test: Double,
-    var azuchi_momoyama_test: Double,
-    var general_test: Double
+    var iwajuku_test: Int,
+    var jomon_test: Int,
+    var yayoi_test: Int,
+    var yamato_test: Int,
+    var nara_test: Int,
+    var heian_test: Int,
+    var kamakura_test: Int,
+    var muromachi_test: Int,
+    var azuchi_momoyama_test: Int,
+    var general_test: Int
 )

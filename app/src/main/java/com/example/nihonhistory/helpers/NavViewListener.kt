@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.example.nihonhistory.AboutAppActivity
 import com.example.nihonhistory.CelebratesActivity
@@ -19,6 +20,8 @@ import com.google.firebase.ktx.Firebase
 
 class NavViewListener {
     fun setup(navView: NavigationView, activity: Activity) {
+        val userEmail = activity.getSharedPreferences("User", Context.MODE_PRIVATE).getString("email", "")
+        navView.getHeaderView(0).findViewById<TextView>(R.id.emailTW).text = userEmail
         navView.setNavigationItemSelectedListener { item ->
             val handled = when (item.itemId) {
                 R.id.profile -> {
@@ -51,6 +54,8 @@ class NavViewListener {
                 }
 
                 R.id.signOut -> {
+                    val spEditor = activity.getSharedPreferences("User", Context.MODE_PRIVATE).edit()
+                    spEditor.putString("email", "").apply()
                     Firebase.auth.signOut()
                     activity.startActivity(Intent(activity, SignInActivity::class.java))
                     true

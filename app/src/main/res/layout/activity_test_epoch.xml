@@ -45,7 +45,7 @@
             android:textSize="40sp" />
 
         <TextView
-            android:id="@+id/dateTW"
+            android:id="@+id/positionTW"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"

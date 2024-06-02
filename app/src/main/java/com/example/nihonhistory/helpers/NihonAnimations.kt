@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 object NihonAnimations {
-    fun fadingViewAnimate(textView: View, isVisible: Boolean){
+    fun fadingViewAnimate(textView: View, isVisible: Boolean, invisibilityType: Int = View.GONE){
         MainScope().launch {
             withContext(Dispatchers.Main) {
                 if (isVisible) {
@@ -17,7 +17,7 @@ object NihonAnimations {
                     textView.animate().alpha(1f).setDuration(500).start()
                 } else {
                     textView.animate().alpha(0f).setDuration(500).withEndAction {
-                        textView.visibility = View.GONE
+                        textView.visibility = invisibilityType
                     }.start()
                 }
             }

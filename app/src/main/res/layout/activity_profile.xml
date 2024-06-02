@@ -60,6 +60,7 @@
                     android:textSize="32sp" />
 
                 <TextView
+                    android:id="@+id/emailTW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -110,6 +111,7 @@
                     android:columnCount="4">
 
                     <LinearLayout
+                        android:id="@+id/iwajukuLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -137,6 +139,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/iwajukuPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -161,6 +164,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/jomonLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -188,6 +192,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/jomonPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -212,6 +217,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/yayoiLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -239,6 +245,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/yayoiPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -263,6 +270,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/yamatoLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -290,6 +298,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/yamatoPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -314,6 +323,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/naraLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -341,6 +351,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/naraPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -365,6 +376,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/heianLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -381,17 +393,18 @@
                                 android:layout_height="match_parent"
                                 android:background="@color/transparent"
                                 android:contentDescription="@string/test"
-                                android:src="@drawable/heyan_result" />
+                                android:src="@drawable/heian_result" />
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_margin="12dp"
-                                android:contentDescription="@string/heyan"
+                                android:contentDescription="@string/heian"
                                 android:visibility="gone"
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/heianPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -410,12 +423,13 @@
                             android:fontFamily="@font/russo_one"
                             android:gravity="center"
                             android:maxLines="2"
-                            android:text="@string/heyan"
+                            android:text="@string/heian"
                             android:textColor="@color/mainHeader"
                             android:textSize="16sp" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/kamakuraLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -443,6 +457,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/kamakuraPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -467,6 +482,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/muromachiLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -494,6 +510,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/muromachiPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -518,6 +535,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/azuchiMomoyamaLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -545,6 +563,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/azuchiMomoyamaPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -569,6 +588,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/edoLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -621,6 +641,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/meijiLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -673,6 +694,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/taishoLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -725,6 +747,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/showaLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -776,6 +799,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/heiseiLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -827,6 +851,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/reiwaLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -878,6 +903,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/generalLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -904,6 +930,7 @@
                                 app:srcCompat="@drawable/ic_completation" />
 
                             <TextView
+                                android:id="@+id/generalPercentTW"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="4dp"
@@ -936,6 +963,7 @@
                     android:background="@drawable/separator_line_horizontal" />
 
                 <TextView
+                    android:id="@+id/repeatTW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/russo_one"
@@ -954,12 +982,14 @@
                     tools:listitem="@layout/card_epoch" />
 
                 <View
+                    android:id="@+id/additionalSepLine"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_marginVertical="12dp"
                     android:background="@drawable/separator_line_horizontal" />
 
                 <TextView
+                    android:id="@+id/selectedCelebratesTW"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/russo_one"

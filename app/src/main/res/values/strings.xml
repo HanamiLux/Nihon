@@ -59,7 +59,7 @@
     <string name="yayoi">Яёй</string>
     <string name="yamato">Ямато</string>
     <string name="nara">Нара</string>
-    <string name="heyan">Хэйан</string>
+    <string name="heian">Хэйан</string>
     <string name="kamakura">Камакура</string>
     <string name="muromachi">Муромати</string>
     <string name="azuchi_momoyama">Адзути-Момояма</string>
@@ -71,12 +71,12 @@
     <string name="reiwa">Рэйва</string>
     <string name="general">Общий тест</string>
     <!--    Period of epochs-->
-    <string name="iwajukuPeriod">\??? – 13 тыс. до н.э.</string>
+    <string name="iwajukuPeriod">30 тыс. до н.э. – 13 тыс. до н.э.</string>
     <string name="jomonPeriod">13 тыс. до н.э. – III век до н.э.</string>
     <string name="yayoiPeriod">III век до н.э. – 250 г. н.э.</string>
     <string name="yamatoPeriod">250 – 710 гг.</string>
     <string name="naraPeriod">710 – 794 гг.</string>
-    <string name="heyanPeriod">794 – 1185 гг.</string>
+    <string name="heianPeriod">794 – 1185 гг.</string>
     <string name="kamakuraPeriod">1185 – 1333 гг.</string>
     <string name="muromachiPeriod">1333 – 1568 гг.</string>
     <string name="azuchi_momoyamaPeriod">1568 – 1600 гг.</string>
@@ -93,6 +93,9 @@
     <string name="incorrectLogin">Данные не подходят!</string>
     <string name="emptyFields">Заполните пустые поля!</string>
     <string name="successfullyRegistered">Пользователь %1$s зарегистрирован!</string>
+    <string name="retry">Перепройти</string>
+    <string name="finish">Закончить</string>
+    <string name="result">%1$s\n Результат</string>
 
 
 </resources>
