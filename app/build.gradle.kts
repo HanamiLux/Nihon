@@ -78,6 +78,13 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     //Bcrypt
     implementation(libs.bcrypt)
+    //Yaml support
+    implementation(libs.jackson.core)
+    implementation(libs.jackson.databind)
+    implementation(libs.jackson.module.kotlin)
+    implementation(libs.jackson.dataformat.yaml)
+    //Gson
+    implementation(libs.gson)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

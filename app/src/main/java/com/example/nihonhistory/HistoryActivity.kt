@@ -3,6 +3,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nihonhistory.databinding.ActivityHistoryBinding
 import com.example.nihonhistory.helpers.AppDatabase
@@ -26,7 +27,7 @@ class HistoryActivity : AppCompatActivity() {
         setContentView(binding.root)
         val db = AppDatabase.getDbInstance(this)
         val userEmail = getSharedPreferences("User", Context.MODE_PRIVATE).getString("email", "")
-        CoroutineScope(Dispatchers.Default).launch {
+        lifecycleScope.launch(Dispatchers.IO) {
             val user = db.usersDao().getUserByEmail(userEmail!!)
             if(user != null)
                 testResults = db.testResultsDao().getTestResults(user.id!!)

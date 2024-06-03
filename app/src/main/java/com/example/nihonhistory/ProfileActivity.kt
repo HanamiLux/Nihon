@@ -1,39 +1,43 @@
 package com.example.nihonhistory
 
+import CelebrateRecyclerViewAdapter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nihonhistory.databinding.ActivityHistoryBinding
 import com.example.nihonhistory.databinding.ActivityProfileBinding
 import com.example.nihonhistory.helpers.AppDatabase
 import com.example.nihonhistory.helpers.HistoryRecyclerViewAdapter
 import com.example.nihonhistory.helpers.NavViewListener
+import com.example.nihonhistory.models.Celebrate
 import com.example.nihonhistory.models.Epoch
+import com.example.nihonhistory.models.SelectedCelebrate
 import com.example.nihonhistory.models.TestResult
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Date
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private var testResults: TestResult? = null
-    private lateinit var recyclerViewAdapter: HistoryRecyclerViewAdapter
+    private lateinit var recyclerViewAdapterHistory: HistoryRecyclerViewAdapter
+    private lateinit var recyclerViewAdapterSelectedCelebrates: CelebrateRecyclerViewAdapter
+    private lateinit var selectedCelebrates: List<Celebrate>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val db = AppDatabase.getDbInstance(this)
         val userEmail = getSharedPreferences("User", Context.MODE_PRIVATE).getString("email", "")
-        CoroutineScope(Dispatchers.Default).launch {
+        lifecycleScope.launch(Dispatchers.IO) {
             val user = db.usersDao().getUserByEmail(userEmail!!)
-            if(user != null)
+            if(user != null) {
                 testResults = db.testResultsDao().getTestResults(user.id!!)
+                selectedCelebrates = db.selectedCelebratesDao().getSelectedCelebrates(user.id!!)
+            }
             launch(Dispatchers.Main) {
                 binding.apply {
                     "${testResults?.iwajuku_test ?: 0}%".also { iwajukuPercentTW.text = it }
@@ -47,6 +51,7 @@ class ProfileActivity : AppCompatActivity() {
                     "${testResults?.azuchi_momoyama_test ?: 0}%".also { azuchiMomoyamaPercentTW.text = it }
                     "${testResults?.general_test ?: 0}%".also { generalPercentTW.text = it }
                     recyclerViewRepeat.layoutManager = LinearLayoutManager(this@ProfileActivity)
+                    recyclerViewSelectedCelebrates.layoutManager = LinearLayoutManager(this@ProfileActivity)
                     val sortedEpochs = listOf(
                         Epoch(getString(R.string.iwajuku), getString(R.string.iwajukuPeriod), "${testResults?.iwajuku_test ?: 0}", R.drawable.card_iwajuku),
                         Epoch(getString(R.string.jomon), getString(R.string.jomonPeriod), "${testResults?.jomon_test ?: 0}", R.drawable.card_jomon),
@@ -59,18 +64,21 @@ class ProfileActivity : AppCompatActivity() {
                         Epoch(getString(R.string.azuchi_momoyama), getString(R.string.azuchi_momoyamaPeriod), "${testResults?.azuchi_momoyama_test ?: 0}", R.drawable.card_azuchi_momoyama),
                         Epoch(getString(R.string.general), getString(R.string.generalPeriod), "${testResults?.general_test ?: 0}", R.drawable.card_general),
                     ).filter { it.testPercentage.toInt() < 80 }
-                    recyclerViewAdapter = HistoryRecyclerViewAdapter(sortedEpochs)
-                    recyclerViewRepeat.adapter = recyclerViewAdapter
+                    recyclerViewAdapterHistory = HistoryRecyclerViewAdapter(sortedEpochs)
+                    recyclerViewRepeat.adapter = recyclerViewAdapterHistory
+                    recyclerViewAdapterSelectedCelebrates = CelebrateRecyclerViewAdapter(selectedCelebrates, userEmail, lifecycleScope)
+                    recyclerViewSelectedCelebrates.adapter = recyclerViewAdapterSelectedCelebrates
                     if(sortedEpochs.isEmpty()){
                         repeatTW.visibility = View.GONE
                         additionalSepLine.visibility = View.GONE
                         recyclerViewRepeat.visibility = View.GONE
                     }
-                    if(sortedEpochs.isEmpty()){
+                    if(selectedCelebrates.isEmpty()){
                         selectedCelebratesTW.visibility = View.GONE
                         additionalSepLine.visibility = View.GONE
                         recyclerViewSelectedCelebrates.visibility = View.GONE
                     }
+
                 }
             }
         }

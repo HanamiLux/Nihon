@@ -19,6 +19,8 @@ googleServiceVersion = "4.4.1"
 firebaseBomVersion = "33.0.0"
 firebaseAuthKtxVersion = "23.0.0"
 bcryptVersion = "5.5.1"
+jacksonVersion = "2.13.0"
+gsonVersion = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,6 +42,12 @@ circleImageView = { group = "de.hdodenhof", name = "circleimageview", version.re
 firebase-bom = {group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBomVersion"}
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtxVersion" }
 bcrypt = { group = "org.springframework.security", name = "spring-security-core", version.ref = "bcryptVersion" }
+jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jacksonVersion" }
+jackson-dataformat-yaml = { group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-yaml", version.ref = "jacksonVersion" }
+jackson-core = { group = "com.fasterxml.jackson.core", name = "jackson-core", version.ref = "jacksonVersion" }
+jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin", version.ref = "jacksonVersion" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

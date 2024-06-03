@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.nihonhistory.databinding.ActivitySignInBinding
 import com.example.nihonhistory.helpers.AppDatabase
 import com.example.nihonhistory.helpers.HashPassword
@@ -64,7 +65,7 @@ class SignInActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val user = User(null, hashedPassword, email)
-                    CoroutineScope(Dispatchers.Default).launch {
+                    lifecycleScope.launch(Dispatchers.IO) {
                         if (db.getUserByEmail(email) == null) {
                             db.insertUser(user)
                         }

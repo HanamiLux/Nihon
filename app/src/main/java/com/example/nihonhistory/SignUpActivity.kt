@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.nihonhistory.databinding.ActivitySignUpBinding
 import com.example.nihonhistory.helpers.AppDatabase
 import com.example.nihonhistory.helpers.HashPassword
@@ -55,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
                         val firebaseUser : FirebaseUser? = auth.currentUser
                         Toast.makeText(this@SignUpActivity,
                             getString(R.string.successfullyRegistered, firebaseUser?.email), Toast.LENGTH_SHORT).show()
-                        CoroutineScope(Dispatchers.Default).launch {
+                        lifecycleScope.launch(Dispatchers.IO) {
                             if(db.usersDao().getUserByEmail(email) == null){
                                 db.usersDao().insertUser(User(null, hashedPassword, email))
                         }

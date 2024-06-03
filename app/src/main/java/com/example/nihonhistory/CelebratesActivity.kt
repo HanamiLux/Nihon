@@ -1,26 +1,61 @@
 package com.example.nihonhistory
 
+import CelebrateRecyclerViewAdapter
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nihonhistory.databinding.ActivityCelebratesBinding
+import com.example.nihonhistory.helpers.AppDatabase
 import com.example.nihonhistory.helpers.NavViewListener
+import com.example.nihonhistory.helpers.NihonAnimations
+import com.example.nihonhistory.models.Celebrate
+import com.example.nihonhistory.models.CelebrateData
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
+import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.readValue
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class CelebratesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCelebratesBinding
+    private lateinit var db: AppDatabase
+    private lateinit var recyclerViewAdapter: CelebrateRecyclerViewAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCelebratesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val email = getSharedPreferences("User", Context.MODE_PRIVATE).getString("email", "")
+        db = AppDatabase.getDbInstance(this)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val celebrates = db.celebratesDao().getCelebrates(Date().time)
+            if(celebrates.isEmpty()) {
+                val newCelebrates = readYamlFile()
+                db.celebratesDao().insertAllCelebrates(newCelebrates)
+            }
+            val user = db.usersDao().getUserByEmail(email!!)
+            lateinit var selectedCelebrates: List<Celebrate>
+            if(user != null)
+                selectedCelebrates = db.selectedCelebratesDao().getSelectedCelebrates(user.id!!)
+            launch(Dispatchers.Main) {
+                binding.apply {
+                    recyclerViewCelebrates.layoutManager = LinearLayoutManager(this@CelebratesActivity)
+                    recyclerViewAdapter = CelebrateRecyclerViewAdapter(selectedCelebrates, email, lifecycleScope, celebrates)
+                    recyclerViewCelebrates.adapter = recyclerViewAdapter
+                }
+            }
+        }
         binding.apply {
             navDrawerBtn.setOnClickListener {
                 binding.drawerLayout.open()
@@ -33,9 +68,9 @@ class CelebratesActivity : AppCompatActivity() {
             filterAllSeasonsBtn.isSelected = true
             filterBtn.setOnClickListener {
                 if(filterLayout.visibility == View.VISIBLE)
-                    filterLayout.visibility = View.GONE
+                    NihonAnimations.fadingViewAnimate(filterLayout, false)
                 else
-                    filterLayout.visibility = View.VISIBLE
+                    NihonAnimations.fadingViewAnimate(filterLayout, true)
                 checkForFilters()
             }
             filterAllSeasonsBtn.setOnClickListener {
@@ -114,6 +149,26 @@ class CelebratesActivity : AppCompatActivity() {
 
     }
 
+    private fun readYamlFile(): List<Celebrate> {
+        val inputStream: InputStream = resources.openRawResource(R.raw.holidays_detailed)
+        val mapper = ObjectMapper(YAMLFactory()).registerModules(KotlinModule.Builder().build())
+        val celebratesMap: Map<String, CelebrateData> = mapper.readValue(inputStream)
+
+        val celebrates = celebratesMap.entries.map { entry ->
+            val value = entry.value
+
+            Celebrate(
+                id = null,
+                name = value.name,
+                startDate = value.date,
+                endDate = value.date,
+                description = value.name_en
+            )
+        }
+
+        return celebrates
+    }
+
 
     private fun updateButtonAppearance(button: Button, isSelected: Boolean) {
         if (isSelected) {
@@ -137,4 +192,6 @@ class CelebratesActivity : AppCompatActivity() {
         else
             filterBtn.setImageResource(R.drawable.ic_filter)
     }
+
 }
+

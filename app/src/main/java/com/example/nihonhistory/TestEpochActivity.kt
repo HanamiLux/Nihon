@@ -12,6 +12,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.nihonhistory.databinding.ActivityLearnEpochBinding
 import com.example.nihonhistory.databinding.ActivityTestEpochBinding
 import com.example.nihonhistory.helpers.AppDatabase
@@ -347,7 +348,7 @@ class TestEpochActivity : AppCompatActivity() {
         }
         option4Btn.setOnClickListener{
             val userEmail = getSharedPreferences("User", Context.MODE_PRIVATE).getString("email", "")
-            CoroutineScope(Dispatchers.Default).launch {
+            lifecycleScope.launch(Dispatchers.IO) {
                 val user = db.usersDao().getUserByEmail(userEmail!!)
                 val testResults = db.testResultsDao().getTestResults(user?.id!!)
                 val percentResult = (score.toFloat() / questions.size.toFloat() * 100).toInt()
