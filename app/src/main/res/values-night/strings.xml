@@ -85,7 +85,6 @@
     <!--    Other-->
     <string name="recoveringText">На указанный адрес почты будет отправлена ссылка для восстановления пароля</string>
     <string name="passwordError">Пароль должен содержать хотя бы одну букву в нижнем и в верхнем регистре, цифру и специальный символ, длина как минимум 8 символов!</string>
-    <string name="loginError">Логин может состоять из букв латинского алфавита верхнего и нижнего регистра, цифр, символов подчеркивания (_) и дефисов (-), и иметь длину от 3 до 20 символов!</string>
     <string name="passwordComparisonError">Пароли не совпадают!</string>
     <string name="emptyFieldsError">Заполните все поля!</string>
     <string name="emailFormatError">Неправильный формат e-mail!</string>

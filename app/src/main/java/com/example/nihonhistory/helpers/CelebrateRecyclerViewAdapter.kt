@@ -18,6 +18,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class CelebrateRecyclerViewAdapter(
     private val selectedItems: List<Celebrate>,
@@ -47,12 +49,18 @@ class CelebrateRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem =if(items.isNotEmpty())  items[position] else selectedItems[position]
+        val inputFormat = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH)
+        val outputFormat = SimpleDateFormat("dd.MM.yy", Locale.ENGLISH)
+        val oldDate = inputFormat.parse(currentItem.startDate.toString())
+        val formattedDateStr = outputFormat.format(oldDate!!)
+
         holder.apply {
             holidayNameTW.text = currentItem.name
-            holidayDateTW.text = if (currentItem.startDate == currentItem.endDate) {
-                currentItem.startDate.toString()
+            holidayDateTW.text = if (currentItem.startDate == currentItem.endDate) { // So far always true
+
+                formattedDateStr
             } else {
-                "${currentItem.startDate} - ${currentItem.endDate}"
+                "${formattedDateStr} - ${formattedDateStr}"
             }
 
             selectedIB.setImageResource(

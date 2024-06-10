@@ -16,6 +16,8 @@ import com.example.nihonhistory.models.SelectedCelebrate
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class CelebrationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCelebrationBinding
@@ -29,11 +31,15 @@ class CelebrationActivity : AppCompatActivity() {
         val currentCelebrate =
             Gson().fromJson(intent.getStringExtra("Holiday"), Celebrate::class.java)
         binding.apply {
+            val inputFormat = SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH)
+            val outputFormat = SimpleDateFormat("dd.MM.yy", Locale.ENGLISH)
+            val oldDate = inputFormat.parse(currentCelebrate.startDate.toString())
+            val formattedDateStr = outputFormat.format(oldDate!!)
             titleTW.text = currentCelebrate.name
-            if (currentCelebrate.startDate == currentCelebrate.endDate)
-                dateTW.text = "${currentCelebrate.startDate}"
+            if (currentCelebrate.startDate == currentCelebrate.endDate) // So far always true
+                dateTW.text = formattedDateStr
             else
-                ("${currentCelebrate.startDate} - ${currentCelebrate.endDate}").also {
+                ("$formattedDateStr - $formattedDateStr").also {
                     dateTW.text = it
                 }
             descriptionTW.text = currentCelebrate.description

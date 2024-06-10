@@ -45,25 +45,6 @@
             android:textColor="@color/mainHeader"
             android:textSize="48sp"
             android:layout_marginTop="6dp" />
-        <EditText
-            android:id="@+id/loginET"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:drawableStart="@drawable/ic_user"
-            android:background="@drawable/input_gradient"
-            android:textSize="20sp"
-            android:layout_marginHorizontal="48dp"
-            android:layout_marginTop="16dp"
-            android:padding="16dp"
-            android:paddingEnd="46dp"
-            android:textColorHint="@color/hints"
-            android:fontFamily="@font/russo_one"
-            android:gravity="center"
-            android:hint="@string/login"
-            android:textColor="@color/epochOnCard"
-            tools:ignore="RtlCompat,RtlSymmetry"
-            android:autofillHints="no"
-            android:inputType="text" />
 
         <EditText
             android:id="@+id/emailET"
@@ -73,7 +54,7 @@
             android:background="@drawable/input_gradient"
             android:textSize="20sp"
             android:layout_marginHorizontal="48dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="85dp"
             android:padding="16dp"
             android:paddingEnd="46dp"
             android:textColorHint="@color/hints"
@@ -159,18 +140,6 @@
             android:fontFamily="@font/russo_one"
             android:gravity="center"
             android:text="@string/passwordError"
-            android:textColor="@color/mainHeader"
-            android:textSize="24sp"
-            android:paddingHorizontal="12dp"
-            android:layout_marginTop="6dp"
-            android:visibility="gone"/>
-        <TextView
-            android:id="@+id/loginErrorTW"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/russo_one"
-            android:gravity="center"
-            android:text="@string/loginError"
             android:textColor="@color/mainHeader"
             android:textSize="24sp"
             android:paddingHorizontal="12dp"

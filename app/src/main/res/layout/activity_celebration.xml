@@ -134,7 +134,7 @@
                 android:fontFamily="@font/tahoma"
                 android:text="@string/celebrationNameExample"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

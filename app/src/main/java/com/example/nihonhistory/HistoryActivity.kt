@@ -27,7 +27,7 @@ class HistoryActivity : AppCompatActivity() {
         setContentView(binding.root)
         val db = AppDatabase.getDbInstance(this)
         val userEmail = getSharedPreferences("User", Context.MODE_PRIVATE).getString("email", "")
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.Default) {
             val user = db.usersDao().getUserByEmail(userEmail!!)
             if(user != null)
                 testResults = db.testResultsDao().getTestResults(user.id!!)

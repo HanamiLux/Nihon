@@ -153,16 +153,14 @@ class CelebratesActivity : AppCompatActivity() {
         val inputStream: InputStream = resources.openRawResource(R.raw.holidays_detailed)
         val mapper = ObjectMapper(YAMLFactory()).registerModules(KotlinModule.Builder().build())
         val celebratesMap: Map<String, CelebrateData> = mapper.readValue(inputStream)
-
         val celebrates = celebratesMap.entries.map { entry ->
             val value = entry.value
-
             Celebrate(
                 id = null,
-                name = value.name,
+                name = value.name_ru,
                 startDate = value.date,
                 endDate = value.date,
-                description = value.name_en
+                description = value.description
             )
         }
 

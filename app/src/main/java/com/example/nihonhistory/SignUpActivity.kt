@@ -23,7 +23,6 @@ import java.security.MessageDigest
 class SignUpActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var login: String
     private lateinit var email: String
     private lateinit var password: String
 
@@ -90,14 +89,8 @@ class SignUpActivity : AppCompatActivity() {
             return@with false
         }
         NihonAnimations.fadingViewAnimate(emailFormatErrorTW, false)
-        login = loginET.text.toString().trim()
         password = passwordET.text.toString().trim()
 
-        if (!loginRegex.matches(login)) {
-            NihonAnimations.fadingViewAnimate(loginErrorTW, true)
-            return@with false
-        }
-        NihonAnimations.fadingViewAnimate(loginErrorTW, false)
         if (!passwordRegex.matches(password)) {
             NihonAnimations.fadingViewAnimate(passwordErrorTW, true)
             return@with false

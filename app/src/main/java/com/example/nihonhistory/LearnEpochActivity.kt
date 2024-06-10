@@ -4,9 +4,12 @@ import android.content.Intent
 import android.graphics.PointF
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -24,7 +27,24 @@ class LearnEpochActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLearnEpochBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        enableEdgeToEdge()
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.forEye)
+
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY // Скрыть навигацию и сделать её снова видимой при свайпе
+                )
+
+        // Установка слушателя на нажатие экрана для переключения видимости навигационной панели
+        window.decorView.setOnSystemUiVisibilityChangeListener {
+            if (it and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION == 0) {
+                window.decorView.systemUiVisibility = (
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        )
+            }
+        }
 
         val epochTitle = intent.getStringExtra("epochTitle")
         when (epochTitle) {
