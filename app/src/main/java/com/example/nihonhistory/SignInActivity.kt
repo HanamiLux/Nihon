@@ -30,6 +30,8 @@ class SignInActivity : AppCompatActivity() {
 
         if(auth.currentUser != null){
             startActivity(Intent(this@SignInActivity, HistoryActivity::class.java))
+            val spEditor = getSharedPreferences("User", Context.MODE_PRIVATE).edit()
+            spEditor.putString("email", auth.currentUser!!.email).apply()
             finish()
         }
 

@@ -22,10 +22,10 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class CelebrateRecyclerViewAdapter(
-    private val selectedItems: List<Celebrate>,
+    private var selectedItems: List<Celebrate>,
     private val email: String?,
     private val coroutineScope: CoroutineScope,
-    private val items: List<Celebrate> = listOf()
+    private var items: List<Celebrate> = listOf()
 ) : RecyclerView.Adapter<CelebrateRecyclerViewAdapter.ViewHolder>() {
     private lateinit var context: Context
     private lateinit var db: AppDatabase
@@ -45,6 +45,10 @@ class CelebrateRecyclerViewAdapter(
         return ViewHolder(view)
     }
 
+    fun updateData(newCelebrates: List<Celebrate>){
+        this.items = newCelebrates
+        notifyDataSetChanged()
+    }
     override fun getItemCount() = if(items.isEmpty()) selectedItems.size else items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

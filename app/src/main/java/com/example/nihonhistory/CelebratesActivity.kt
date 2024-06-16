@@ -24,6 +24,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.InputStream
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
@@ -31,6 +32,7 @@ class CelebratesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCelebratesBinding
     private lateinit var db: AppDatabase
     private lateinit var recyclerViewAdapter: CelebrateRecyclerViewAdapter
+    private lateinit var celebrates: List<Celebrate>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +41,7 @@ class CelebratesActivity : AppCompatActivity() {
         val email = getSharedPreferences("User", Context.MODE_PRIVATE).getString("email", "")
         db = AppDatabase.getDbInstance(this)
         lifecycleScope.launch(Dispatchers.IO) {
-            val celebrates = db.celebratesDao().getCelebrates(Date().time)
+            celebrates = db.celebratesDao().getCelebrates(Date().time)
             if(celebrates.isEmpty()) {
                 val newCelebrates = readYamlFile()
                 db.celebratesDao().insertAllCelebrates(newCelebrates)
@@ -89,18 +91,22 @@ class CelebratesActivity : AppCompatActivity() {
 
             filterSpringBtn.setOnClickListener {
                 setSelectionFilterBtn(filterSpringBtn)
+                checkForFilters()
             }
 
             filterAutumnBtn.setOnClickListener {
                 setSelectionFilterBtn(filterAutumnBtn)
+                checkForFilters()
             }
 
             filterWinterBtn.setOnClickListener {
                 setSelectionFilterBtn(filterWinterBtn)
+                checkForFilters()
             }
 
             filterSummerBtn.setOnClickListener {
                 setSelectionFilterBtn(filterSummerBtn)
+                checkForFilters()
             }
             filterNameET.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -181,7 +187,6 @@ class CelebratesActivity : AppCompatActivity() {
         filterAllSeasonsBtn.isSelected = filterSummerBtn.isSelected && filterWinterBtn.isSelected &&
                 filterAutumnBtn.isSelected && filterSpringBtn.isSelected
         updateButtonAppearance(filterAllSeasonsBtn, filterAllSeasonsBtn.isSelected)
-        checkForFilters()
     }
     private fun checkForFilters() = with(binding){
         if(filterNameET.text.isNotEmpty() || filterEndDateET.text.isNotEmpty() ||
@@ -189,7 +194,50 @@ class CelebratesActivity : AppCompatActivity() {
             filterBtn.setImageResource(R.drawable.ic_filter_used)
         else
             filterBtn.setImageResource(R.drawable.ic_filter)
+        filtersFetch()
     }
+
+    private fun filtersFetch() = with(binding) {
+        lifecycleScope.launch (Dispatchers.Main) {
+            val name = if (filterNameET.text.isNotEmpty()) filterNameET.text.toString() else null
+            val endDate: Long = try {
+                if (filterEndDateET.text.isNotEmpty()) {
+                    val date = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).parse(filterEndDateET.text.toString())?.time
+                    date?.let {
+                        val calendar = Calendar.getInstance()
+                        calendar.timeInMillis = it
+                        calendar.add(Calendar.DAY_OF_YEAR, -1)
+                        calendar.timeInMillis
+                    } ?: 0
+                } else {
+                    0
+                }
+            } catch (e: Exception) {
+                0
+            }
+            val startDate: Long = try {
+                if (filterStartDateET.text.isNotEmpty())
+                    SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).parse(filterStartDateET.text.toString())?.time ?: Date().time
+                else
+                    Date().time
+            } catch (e: Exception) {
+                Date().time
+            }
+
+            val newCelebrates = db.celebratesDao().getCelebratesByFilters(
+                name,
+                endDate,
+                startDate,
+                !filterSpringBtn.isSelected,
+                !filterSummerBtn.isSelected,
+                !filterAutumnBtn.isSelected,
+                !filterWinterBtn.isSelected
+            )
+
+            recyclerViewAdapter.updateData(newCelebrates)
+        }
+    }
+
 
 }
 
